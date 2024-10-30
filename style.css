@@ -1,0 +1,165 @@
+/* Genel ayarlar ve menü stilinde geliştirmeler */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Kutuların boyutlandırması için */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 400vh; /* Tam yükseklik */
+  background-color: black !important;
+  color: white; /* Metin rengini beyaz yap */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px;
+  border-bottom: 2px solid white;
+  border-radius: 0 0 30px 30px; /* Sadece alt köşeleri yuvarla */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo img {
+  height: 60px;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.header-center ul {
+  display: flex;
+  list-style: none;
+}
+
+.header-center ul li {
+  margin: 0 15px;
+}
+
+.header-center ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.header-center ul li a:hover {
+  text-decoration: underline;
+  color: white !important;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.store-icon {
+  color: #ffffff;
+  font-size: 30px;
+  margin-left: 10px;
+  transition: transform 0.3s;
+}
+
+.store-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Slider Bölümü */
+.product-slider {
+  height: 70vh;
+  background-color: #000;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 70vh;
+}
+
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 50vh; /* Mobilde slider yüksekliği */
+  }
+  .header-center ul {
+    display: none; /* Mobilde menüyü gizle */
+  }
+  .menu-icon {
+    display: block; /* Mobilde menü simgesini göster */
+  }
+  #menu-list {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    border-radius: 0 0 30px 30px;
+    z-index: 1;
+  }
+  #menu-list.active {
+    display: block;
+    animation: slideDown 0.3s ease-in-out;
+  }
+  #menu-list li {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+  }
+  #menu-list li a {
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  #menu-list li a:hover {
+    text-decoration: underline;
+    color: #AD49E1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 200px;
+    opacity: 1;
+  }
+}
+/* Genel img ayarları */
+img {
+  max-width: 100%; /* Resmin genişliği %100 olmalı */
+  height: auto; /* Yükseklik otomatik olmalı */
+  object-fit: cover; /* Resmin çerçeveye tam oturmasını sağlar */
+}
+
+/* Slider için özel ayarlar */
+.product-slider {
+  position: relative; /* İçerik konumlandırması için */
+  overflow: hidden; /* Taşmayı gizle */
+}
+
+.carousel-item {
+  height: 100%; /* Carousel öğeleri yüksekliği %100 olmalı */
+  border: 2px solid white;
+  border-radius: 30px;
+}
+
+.carousel-item img {
+  height: 100%; /* Resmin yüksekliği %100 olmalı */
+  width: 100%; /* Genişliği %100 olmalı */
+  object-fit: cover; /* Resmin çerçeveye tam oturmasını sağlar */
+}
+
+/* Mobil cihazlar için ayarlar */
+@media (max-width: 768px) {
+  .product-slider {
+      height: auto; /* Mobilde otomatik yükseklik */
+  }
+}
